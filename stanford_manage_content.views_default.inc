@@ -93,7 +93,7 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['empty'] = FALSE;
-  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="!1">Manage %1</a></div>';
+  $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="manage/!1">Manage %1</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
   $handler->display->display_options['footer']['area']['tokenize'] = 1;
   /* Field: Content: Title */
@@ -253,6 +253,9 @@ function stanford_manage_content_views_default_views() {
   $handler = $view->new_display('page', 'Summary Page', 'page_summary');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Manage Site Content';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['header'] = FALSE;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
@@ -324,7 +327,7 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['field'] = 'type';
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
-  $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_news';
+  $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_news_item';
   $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
@@ -435,23 +438,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
-
-  /* Display: Summary Block */
-  $handler = $view->new_display('block', 'Summary Block', 'block_summary');
-  $handler->display->display_options['defaults']['footer'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Content: Type */
-  $handler->display->display_options['arguments']['type']['id'] = 'type';
-  $handler->display->display_options['arguments']['type']['table'] = 'node';
-  $handler->display->display_options['arguments']['type']['field'] = 'type';
-  $handler->display->display_options['arguments']['type']['default_action'] = 'summary';
-  $handler->display->display_options['arguments']['type']['default_argument_type'] = 'raw';
-  $handler->display->display_options['arguments']['type']['default_argument_options']['index'] = '0';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['type']['summary']['format'] = 'unformatted_summary';
-  $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['type']['summary_options']['inline'] = 0;
 
   /* Display: Default Block */
   $handler = $view->new_display('block', 'Default Block', 'block_default');
