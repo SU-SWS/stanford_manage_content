@@ -1,0 +1,5 @@
+Stanford Manage Contentx.x-x.x xxxx-xx-xx
+--------------------------------------
+
+Stanford Manage Content 7.x-1.0-alpha1 2013-05-14
+---------------------------------------------
