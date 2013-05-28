@@ -10,7 +10,7 @@
 function stanford_manage_content_views_default_views() {
   $export = array();
 
-  $view = new view;
+  $view = new view();
   $view->name = 'stanford_manage_content';
   $view->description = '';
   $view->tag = 'default';
@@ -23,6 +23,7 @@ function stanford_manage_content_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['use_ajax'] = TRUE;
+  $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'administer nodes';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -33,7 +34,6 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
-  $handler->display->display_options['pager']['options']['expose']['items_per_page_options_all'] = 0;
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
     'title' => 'title',
@@ -78,210 +78,65 @@ function stanford_manage_content_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  $handler->display->display_options['style_options']['override'] = 1;
-  $handler->display->display_options['style_options']['sticky'] = 0;
-  $handler->display->display_options['style_options']['empty_table'] = 0;
   /* Header: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = FALSE;
   $handler->display->display_options['header']['area']['content'] = '<h2>%1</h2>';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['header']['area']['tokenize'] = 1;
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['empty'] = FALSE;
   $handler->display->display_options['footer']['area']['content'] = '<div class="more-link"><a href="manage/!1">Manage all %1 nodes</a></div>';
   $handler->display->display_options['footer']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['footer']['area']['tokenize'] = 1;
+  $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['title']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   /* Field: Content: Type */
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
   $handler->display->display_options['fields']['type']['label'] = '';
   $handler->display->display_options['fields']['type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['type']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['type']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['type']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['type']['alter']['html'] = 0;
   $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['type']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['type']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['type']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['type']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['type']['link_to_node'] = 0;
-  $handler->display->display_options['fields']['type']['machine_name'] = 0;
   /* Field: Content: Has new content */
   $handler->display->display_options['fields']['timestamp']['id'] = 'timestamp';
   $handler->display->display_options['fields']['timestamp']['table'] = 'history';
   $handler->display->display_options['fields']['timestamp']['field'] = 'timestamp';
-  $handler->display->display_options['fields']['timestamp']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['timestamp']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['timestamp']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['timestamp']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['timestamp']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['timestamp']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['timestamp']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['timestamp']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['timestamp']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['timestamp']['link_to_node'] = 0;
-  $handler->display->display_options['fields']['timestamp']['comments'] = 0;
   /* Field: Content: Published */
   $handler->display->display_options['fields']['status']['id'] = 'status';
   $handler->display->display_options['fields']['status']['table'] = 'node';
   $handler->display->display_options['fields']['status']['field'] = 'status';
-  $handler->display->display_options['fields']['status']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['status']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['status']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['status']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['status']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['status']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['status']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['status']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['status']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['status']['not'] = 0;
   /* Field: Content: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
-  $handler->display->display_options['fields']['changed']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['changed']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['changed']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['changed']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['changed']['element_label_colon'] = 1;
-  $handler->display->display_options['fields']['changed']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['changed']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['changed']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['changed']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['changed']['date_format'] = 'long';
-  /* Field: Node: Edit link */
+  /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['edit_node']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['edit_node']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['edit_node']['alter']['html'] = 0;
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['edit_node']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['edit_node']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['edit_node']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['edit_node']['hide_alter_empty'] = 1;
-  /* Field: Node: Delete link */
+  /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['label'] = '';
-  $handler->display->display_options['fields']['delete_node']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['delete_node']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['delete_node']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['delete_node']['alter']['html'] = 0;
   $handler->display->display_options['fields']['delete_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['delete_node']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['delete_node']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['delete_node']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['delete_node']['hide_alter_empty'] = 1;
-  /* Field: Node: Link */
+  /* Field: Content: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['view_node']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['view_node']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['view_node']['alter']['html'] = 0;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['view_node']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['view_node']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['view_node']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['view_node']['text'] = 'view';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
@@ -305,8 +160,6 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['title']['expose']['label'] = 'Filter by Title';
   $handler->display->display_options['filters']['title']['expose']['operator'] = 'title_op';
   $handler->display->display_options['filters']['title']['expose']['identifier'] = 'title';
-  $handler->display->display_options['filters']['title']['expose']['required'] = 0;
-  $handler->display->display_options['filters']['title']['expose']['multiple'] = FALSE;
 
   /* Display: Default Block */
   $handler = $view->new_display('block', 'Default Block', 'block_default');
@@ -323,11 +176,9 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = FALSE;
   $handler->display->display_options['header']['area']['content'] = 'On this page you will find summary blocks for managing all types of content.  Scroll down to find a content type. 
 The menu below will take you to the full manage content page for a content type.';
   $handler->display->display_options['header']['area']['format'] = 'filtered_html';
-  $handler->display->display_options['header']['area']['tokenize'] = 0;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Type */
@@ -337,12 +188,11 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'summary';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'raw';
   $handler->display->display_options['arguments']['type']['default_argument_options']['index'] = '0';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'unformatted_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['base_path'] = 'admin/manage';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['arguments']['type']['summary_options']['inline'] = 0;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
@@ -368,7 +218,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_slide';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -383,7 +232,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_page';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -398,7 +246,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_event';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -413,7 +260,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_event_importer';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -428,7 +274,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_person';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -443,7 +288,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_affiliated_program';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -458,7 +302,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_quote';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -473,7 +316,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'page';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -488,7 +330,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'article';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -503,7 +344,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_course';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -518,7 +358,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_course_importer';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -533,7 +372,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_publication';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
@@ -548,7 +386,6 @@ The menu below will take you to the full manage content page for a content type.
   $handler->display->display_options['arguments']['type']['default_action'] = 'default';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_options']['argument'] = 'stanford_news_item';
-  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
