@@ -9,3 +9,9 @@ Stanford Manage Content 7.x-1.0-alpha3 2013-05-22
 
 Stanford Manage Content 7.x-2.0-alpha1 2013-05-28
 ---------------------------------------------
+
+Stanford Manage Content 7.x-2.0-alpha2 2013-05-29
+---------------------------------------------
+
+Stanford Manage Content 7.x-2.0-alpha3 2013-05-29
+---------------------------------------------
