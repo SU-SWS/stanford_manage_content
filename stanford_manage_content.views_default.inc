@@ -173,6 +173,17 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['arguments']['type']['validate_options']['access'] = TRUE;
   $handler->display->display_options['arguments']['type']['validate_options']['access_op'] = 'update';
   $handler->display->display_options['arguments']['type']['limit'] = '0';
+  $handler->display->display_options['arguments']['type']['transform_dash'] = TRUE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['filters']['type_1']['table'] = 'node';
+  $handler->display->display_options['filters']['type_1']['field'] = 'type';
+  $handler->display->display_options['filters']['type_1']['operator'] = 'not in';
+  $handler->display->display_options['filters']['type_1']['value'] = array(
+    'article' => 'article',
+    'page' => 'page',
+  );
+  $handler->display->display_options['filters']['type_1']['group'] = 1;
   /* Filter criterion: Content: Title */
   $handler->display->display_options['filters']['title']['id'] = 'title';
   $handler->display->display_options['filters']['title']['table'] = 'node';
@@ -194,9 +205,18 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'stanford_course' => 'stanford_course',
+    'stanford_course_importer' => 'stanford_course_importer',
+    'stanford_news_item' => 'stanford_news_item',
     'stanford_person' => 'stanford_person',
+    'stanford_publication' => 'stanford_publication',
     'stanford_event' => 'stanford_event',
+    'stanford_event_importer' => 'stanford_event_importer',
+    'stanford_page' => 'stanford_page',
+    'stanford_thesis' => 'stanford_thesis',
+    'stanford_thesis_importer' => 'stanford_thesis_importer',
   );
+  $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
   $handler->display->display_options['filters']['type']['expose']['operator_id'] = 'type_op';
   $handler->display->display_options['filters']['type']['expose']['label'] = 'Type';
@@ -205,7 +225,13 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    3 => 0,
+    13 => 0,
+    11 => 0,
+    9 => 0,
+    7 => 0,
+    5 => 0,
+    15 => 0,
+    17 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['type']['group_info']['label'] = 'Type';
@@ -221,14 +247,6 @@ function stanford_manage_content_views_default_views() {
         'page' => 0,
       ),
     ),
-  );
-  /* Filter criterion: Content: Type */
-  $handler->display->display_options['filters']['type_1']['id'] = 'type_1';
-  $handler->display->display_options['filters']['type_1']['table'] = 'node';
-  $handler->display->display_options['filters']['type_1']['field'] = 'type';
-  $handler->display->display_options['filters']['type_1']['value'] = array(
-    'stanford_person' => 'stanford_person',
-    'stanford_event' => 'stanford_event',
   );
 
   /* Display: Default Block */
