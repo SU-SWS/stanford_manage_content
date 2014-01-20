@@ -7,8 +7,7 @@
 /**
  * Implements hook_ctools_plugin_api().
  */
-function stanford_manage_content_ctools_plugin_api() {
-  list($module, $api) = func_get_args();
+function stanford_manage_content_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "context" && $api == "context") {
     return array("version" => "3");
   }
@@ -17,6 +16,6 @@ function stanford_manage_content_ctools_plugin_api() {
 /**
  * Implements hook_views_api().
  */
-function stanford_manage_content_views_api() {
-  return array("version" => "3.0");
+function stanford_manage_content_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
 }
