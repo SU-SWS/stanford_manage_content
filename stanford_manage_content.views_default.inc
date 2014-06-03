@@ -286,16 +286,13 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'stanford_course' => 'stanford_course',
-    'stanford_course_importer' => 'stanford_course_importer',
+    'vpsa_landing_page' => 'vpsa_landing_page',
     'stanford_news_item' => 'stanford_news_item',
-    'stanford_person' => 'stanford_person',
-    'stanford_publication' => 'stanford_publication',
     'stanford_event' => 'stanford_event',
     'stanford_event_importer' => 'stanford_event_importer',
     'stanford_page' => 'stanford_page',
-    'stanford_thesis' => 'stanford_thesis',
-    'stanford_thesis_importer' => 'stanford_thesis_importer',
+    'stanford_slide' => 'stanford_slide',
+    'stanford_video' => 'stanford_video',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
   $handler->display->display_options['filters']['type']['exposed'] = TRUE;
@@ -313,6 +310,7 @@ function stanford_manage_content_views_default_views() {
     5 => 0,
     15 => 0,
     17 => 0,
+    19 => 0,
   );
   $handler->display->display_options['filters']['type']['expose']['reduce'] = TRUE;
   $handler->display->display_options['filters']['type']['group_info']['label'] = 'Type';
