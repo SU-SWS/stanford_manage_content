@@ -18,4 +18,4 @@ features[features_api][] = api:1
 features[menu_custom][] = menu-manage-content-by-type
 features[views_view][] = stanford_manage_all_content_link
 features[views_view][] = stanford_manage_content
-project status url = http://drupalfeatures.stanford.edu/fserver/stanford_manage_content/7.x
+project status url = https://github.com/SU-SWS/stanford_manage_content
