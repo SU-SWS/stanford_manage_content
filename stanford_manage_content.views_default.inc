@@ -350,29 +350,28 @@ function stanford_manage_content_views_default_views() {
     17 => 0,
     19 => 0,
   );
-  /* Filter criterion: User: Name (raw) */
-  $handler->display->display_options['filters']['name']['id'] = 'name';
-  $handler->display->display_options['filters']['name']['table'] = 'users';
-  $handler->display->display_options['filters']['name']['field'] = 'name';
-  $handler->display->display_options['filters']['name']['relationship'] = 'uid';
-  $handler->display->display_options['filters']['name']['operator'] = 'contains';
-  $handler->display->display_options['filters']['name']['group'] = 1;
-  $handler->display->display_options['filters']['name']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['name']['expose']['operator_id'] = 'name_op';
-  $handler->display->display_options['filters']['name']['expose']['label'] = 'Author';
-  $handler->display->display_options['filters']['name']['expose']['operator'] = 'name_op';
-  $handler->display->display_options['filters']['name']['expose']['identifier'] = 'name';
-  $handler->display->display_options['filters']['name']['expose']['remember_roles'] = array(
+  /* Filter criterion: User: Name */
+  $handler->display->display_options['filters']['uid']['id'] = 'uid';
+  $handler->display->display_options['filters']['uid']['table'] = 'users';
+  $handler->display->display_options['filters']['uid']['field'] = 'uid';
+  $handler->display->display_options['filters']['uid']['relationship'] = 'uid';
+  $handler->display->display_options['filters']['uid']['value'] = '';
+  $handler->display->display_options['filters']['uid']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['uid']['expose']['operator_id'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['label'] = 'Author';
+  $handler->display->display_options['filters']['uid']['expose']['operator'] = 'uid_op';
+  $handler->display->display_options['filters']['uid']['expose']['identifier'] = 'uid';
+  $handler->display->display_options['filters']['uid']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
-    13 => 0,
     11 => 0,
     9 => 0,
     7 => 0,
     5 => 0,
+    19 => 0,
+    13 => 0,
     15 => 0,
     17 => 0,
-    19 => 0,
   );
 
   /* Display: Default Block */
@@ -392,6 +391,7 @@ function stanford_manage_content_views_default_views() {
   /* Display: All Content Block */
   $handler = $view->new_display('block', 'All Content Block', 'block_all_content');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+
   $export['stanford_manage_content'] = $view;
 
   return $export;
