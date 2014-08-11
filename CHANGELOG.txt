@@ -1,6 +1,17 @@
 Stanford Manage Contentx.x-x.x xxxx-xx-xx
 -------------------------------------------------
 
+Stanford Manage Content 7.x-3.1 2014-08-11
+-------------------------------------------------
+- Small changes to work with erus module
+- Updated README.md with lots of documentation
+
+
+Stanford Manage Content 7.x-3.0 2014-xx-xx
+-------------------------------------------------
+- Missing info
+
+
 Stanford Manage Content 7.x-3.0-alpha1 2014-03-11
 -------------------------------------------------
 - Features 2.x compatible version
