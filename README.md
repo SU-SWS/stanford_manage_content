@@ -1,5 +1,5 @@
 #[Stanford Manage Content](https://github.com/SU-SWS/stanford_manage_content)
-##### Version: 7.x-3.0
+##### Version: 7.x-2.x
 
 Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)   
 [Changelog.txt](CHANGELOG.txt)
