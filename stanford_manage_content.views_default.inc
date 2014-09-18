@@ -391,7 +391,6 @@ function stanford_manage_content_views_default_views() {
   /* Display: All Content Block */
   $handler = $view->new_display('block', 'All Content Block', 'block_all_content');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-
   $export['stanford_manage_content'] = $view;
 
   return $export;
