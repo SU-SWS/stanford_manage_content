@@ -1,7 +1,7 @@
 #[Stanford Manage Content](https://github.com/SU-SWS/stanford_manage_content)
-##### Version: 7.x-3.1
+##### Version: 7.x-3.2
 
-Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)   
+Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)
 [Changelog.txt](CHANGELOG.txt)
 
 This module provides a simplified manage content page for managing all content types on a site. It also has a menu for placing links to more detailed pages for managing individual content types. Users can filter, sort, and search for different kinds of content as well as perform bulk operations on them.

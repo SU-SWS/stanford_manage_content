@@ -1,6 +1,11 @@
 Stanford Manage Contentx.x-x.x xxxx-xx-xx
 -------------------------------------------------
 
+Stanford Manage Content 7.x-3.2 2014-09-26
+-------------------------------------------------
+- Added manage content link to site-action menu through hook_menu
+- Updated access permission for manage content link
+
 Stanford Manage Content 7.x-3.1 2014-08-11
 -------------------------------------------------
 - Small changes to work with erus module
