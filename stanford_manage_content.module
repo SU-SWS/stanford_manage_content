@@ -19,7 +19,7 @@ function stanford_manage_content_menu() {
     'access arguments' => array('administer nodes'),
     'type' => MENU_NORMAL_ITEM,
     'menu_name' => 'menu-admin-shortcuts',
-    'weight' => -100,
+    'weight' => -90,
   );
 
   return $items;
