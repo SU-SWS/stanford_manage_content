@@ -1,6 +1,11 @@
 Stanford Manage Contentx.x-x.x xxxx-xx-xx
 -------------------------------------------------
 
+Stanford Manage Content 7.x-3.3 2014-11-27
+-------------------------------------------------
+- BASIC-1057 | Updated menu weight
+- BASIC-1013 | Updated site action menu weights
+
 Stanford Manage Content 7.x-3.2 2014-09-26
 -------------------------------------------------
 - Added manage content link to site-action menu through hook_menu
