@@ -286,7 +286,7 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'vpsa_landing_page' => 'vpsa_landing_page',
+    'stanford_landing_page' => 'stanford_landing_page',
     'stanford_news_item' => 'stanford_news_item',
     'stanford_event' => 'stanford_event',
     'stanford_event_importer' => 'stanford_event_importer',
