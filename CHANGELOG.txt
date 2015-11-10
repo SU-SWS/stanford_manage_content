@@ -1,6 +1,12 @@
 Stanford Manage Contentx.x-x.x xxxx-xx-xx
 -------------------------------------------------
 
+Stanford Manage Content 7.x-3.4 2015-11-10
+-------------------------------------------------
+- Added label to row counter
+- added views bulk operations to manage view
+- Removed reference to vpsa content type
+
 Stanford Manage Content 7.x-3.3 2014-11-27
 -------------------------------------------------
 - BASIC-1057 | Updated menu weight
