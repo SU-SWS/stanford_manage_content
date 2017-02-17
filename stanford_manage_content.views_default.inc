@@ -178,9 +178,9 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
-  /* Field: Bulk operations: Content revision */
+  /* Field: Bulk operations: Content */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
-  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node_revision';
+  $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['label'] = '';
   $handler->display->display_options['fields']['views_bulk_operations']['element_label_colon'] = FALSE;
@@ -192,35 +192,35 @@ function stanford_manage_content_views_default_views() {
   $handler->display->display_options['fields']['views_bulk_operations']['vbo_operations'] = array(
     'action::node_assign_owner_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::views_bulk_operations_delete_item' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::node_make_sticky_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::node_make_unsticky_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::views_bulk_operations_modify_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
@@ -231,37 +231,44 @@ function stanford_manage_content_views_default_views() {
         ),
       ),
     ),
+    'action::node_promote_action' => array(
+      'selected' => 1,
+      'postpone_processing' => 0,
+      'skip_confirmation' => 0,
+      'override_label' => 0,
+      'label' => '',
+    ),
     'action::node_publish_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::node_unpromote_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::workbench_moderation_set_state_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::node_unpublish_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
     ),
     'action::pathauto_node_update_action' => array(
       'selected' => 1,
-      'postpone_processing' => 1,
+      'postpone_processing' => 0,
       'skip_confirmation' => 0,
       'override_label' => 0,
       'label' => '',
@@ -461,7 +468,6 @@ function stanford_manage_content_views_default_views() {
   /* Display: All Content Block */
   $handler = $view->new_display('block', 'All Content Block', 'block_all_content');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
-
   $export['stanford_manage_content'] = $view;
 
   return $export;
