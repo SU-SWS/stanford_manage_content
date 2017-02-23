@@ -1,6 +1,12 @@
 Stanford Manage Contentx.x-x.x xxxx-xx-xx
 -------------------------------------------------
 
+Stanford Manage Content 7.x-3.5 2017-02-21
+------------------------------------------
+- Fix View at /admin/manage so that it's not deleting the wrong nodes
+- Added code climate integration
+- Added Travis behat test integration
+
 Stanford Manage Content 7.x-3.4 2015-11-10
 -------------------------------------------------
 - Added label to row counter
